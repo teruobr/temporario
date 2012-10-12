@@ -1,9 +1,6 @@
 
-<%--<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>--%>
-
 <%@page contentType="text/html" pageEncoding="ISO-8859-1"%>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN""http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <%@page import="bean.Usuario"%>
 <%@page import="bean.Usuario_"%>
 
@@ -11,7 +8,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" href="Estilo.css" type="text/css">
-        <title>Cadastro de novo usuário</title>
+        <title>Cadastro de novo usu&aacute;rio</title>
     </head>
     <body>
         <%
@@ -57,7 +54,7 @@
                     <td>
                         <select name="lstEstado" required="true">
                             <option value="">Selecione</option>
-                            <option value="SP">São Paulo </option>
+                            <option value="SP">S&atilde;o Paulo </option>
                         </select>
                     </td>
                 </tr>
@@ -68,10 +65,10 @@
                     <td>
                         <select name="lstCidade" required="true">
                             <option value="">Selecione</option>
-                            <option value="São Paulo">São Paulo</option>
-                            <option value="Santo André">Santo André</option>
-                            <option value="São Bernardo do Campo">São Bernardo do Campo</option>
-                            <option value="São Caetano do Sul">São Caetano do Sul</option>
+                            <option value="São Paulo">S&atilde;o Paulo</option>
+                            <option value="Santo André">Santo Andr&eacute;</option>
+                            <option value="São Bernardo do Campo">S&atilde;o Bernardo do Campo</option>
+                            <option value="São Caetano do Sul">S&atilde;o Caetano do Sul</option>
                         </select>
                     </td>
                 </tr>
@@ -85,7 +82,7 @@
                 </tr>
                 <tr>
                     <td>
-                        Endereço:
+                        Endere&ccedil;o:
                     </td>
                     <td>
                         <input value="<%=endereco%>" type="text" name="txtEndereco"/>
@@ -113,21 +110,21 @@
                     <td>
                         <select name="lstEscolaridade" required="true">
                             <option value="">Selecione</option>
-                            <option value="Tecnico">Técnico</option>
+                            <option value="Tecnico">T&eacute;cnico</option>
                             <option value="Superior Incompleto">Superior Incompleto</option>
                             <option value="Superior Completo">Superior Completo</option>
-                            <option value="Pós-Graduado">Pós-Graduado</option>
+                            <option value="Pós-Graduado">P&oacute;s-Graduado</option>
                         </select>
                     </td>
                     <td>
-                        Nível de Atuação:
+                         N&iacute;vel de Atua&ccedil;&atilde;o:
                     </td>
                     <td>
                         <select name="lstNivel" required="true">
                             <option value="">Selecione</option>
-                            <option value="Técnico">Técnico</option>
-                            <option value="Estagiário">Estagiário</option>
-                            <option value="Júnior">Júnior</option>
+                            <option value="Técnico">T&eacute;cnico</option>
+                            <option value="Estagiário">Estagi&aacute;rio</option>
+                            <option value="Júnior">J&uacute;nior</option>
                             <option value="Pleno">Pleno</option>
                             <option value="Senior">Senior</option>
                             <option value="Gerente">Gerente </option>
@@ -145,16 +142,16 @@
                         </select>
                     </td>
                     <td>
-                        Área de Atuação:
+                        &Aacute;rea de Atua&ccedil;&atilde;o:
                     </td>
                     <td>
                         <select name="lstArea" required="true">
                             <option value="">Selecione</option>
                             <option value="Analise">Analise</option>
-                            <option value="Docência e Pesquisa">Docência e Pesquisa</option>
-                            <option value="Empresário">Empresário</option>
+                            <option value="Docência e Pesquisa">Doc&ecirc;ncia e Pesquisa</option>
+                            <option value="Empresário">Empres&aacute;rio</option>
                             <option value="Gerência">Gerencia</option>
-                            <option value="Programação">Programação</option>
+                            <option value="Programação">Programa&ccedil;&atilde;o</option>
                             <option value="Redes">Redes</option>
 
                         </select>
@@ -167,8 +164,8 @@
                     <td>
                         <select name="lstCurso" required="true">
                             <option value="">Selecione</option>
-                            <option value="SI">Sistemas de Informação</option>
-                            <option value="CC">Ciências da Computação</option>
+                            <option value="Sistemas de Informação">Sistemas de Informa&ccedil;&atilde;o</option>
+                            <option value="Ciência da Computação">Ci&ecirc;ncia da Computa&ccedil;&atilde;o</option>
                         </select>
                     </td>
                 </tr>

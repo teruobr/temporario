@@ -4,16 +4,13 @@
     Author     : Teruo
 --%>
 
-<%--<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>--%>
-
-<%@page contentType="text/html" pageEncoding="ISO-8859-1"%>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN""http://www.w3.org/TR/html4/loose.dtd">
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" href="Estilo.css" type="text/css">
-        <title>Cadastro de novo usuário</title>
+        <title>Cadastro de novo usuÃ¡rio</title>
     </head>
 
     <script type="text/javascript" >
@@ -22,7 +19,7 @@
             var cSenha = document.f1.txtConfirmaSenha.value;
 
             if (senha != cSenha) {
-                alert("Senha não confere!!!");
+                alert("Senha nï¿½o confere!!!");
                 return false;
             }
                return true;

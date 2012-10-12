@@ -6,6 +6,10 @@
 
 <table>
     <tr>
+        
+        <td>
+            <a href="Home.jsp">Home</a>
+        </td>
         <td>
             <a href="MeusDados.jsp">Meus Dados</a>
         </td>
