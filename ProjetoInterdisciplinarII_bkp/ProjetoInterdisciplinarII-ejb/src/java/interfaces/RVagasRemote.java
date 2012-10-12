@@ -20,5 +20,6 @@ public interface RVagasRemote {
     public void alterar(Vagas vaga);
     public void excluir(Vagas vaga);
     public List<Vagas> consultar(Vagas vaga);
+    public List<Vagas> consultarWeb(Vagas vaga);
     
 }

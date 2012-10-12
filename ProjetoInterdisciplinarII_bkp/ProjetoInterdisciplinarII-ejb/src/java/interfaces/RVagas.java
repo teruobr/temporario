@@ -41,6 +41,10 @@ public class RVagas implements RVagasRemote{
     public List<Vagas> consultar(Vagas vaga) {
         return facade.getConsultaVaga(vaga);
     }
+     @Override
+    public List<Vagas> consultarWeb(Vagas vaga) {
+        return facade.getConsultaVagaWeb(vaga);
+    }
 
     
 
