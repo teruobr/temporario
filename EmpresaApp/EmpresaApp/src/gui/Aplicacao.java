@@ -672,8 +672,8 @@ public class Aplicacao extends javax.swing.JFrame {
         List<Vagas> listaVagas;
         DefaultTableModel modelo = (DefaultTableModel) vagasTabela.getModel();
         modelo.setNumRows(0);
-        
-        
+
+
         try {
             ctx = new InitialContext();
             RVagasRemote vagas = (RVagasRemote) ctx.lookup("java:global/ProjetoInterdisciplinarII/ProjetoInterdisciplinarII-ejb/RVagas");
@@ -684,31 +684,32 @@ public class Aplicacao extends javax.swing.JFrame {
             busca.setEstado(String.valueOf(cbEstadoVaga.getSelectedItem()));
             busca.setCidade(String.valueOf(cbCidadeVaga.getSelectedItem()));
             busca.setIdEmpresa(getEmpresa().getId());
-            
-            listaVagas = vagas.consultar(busca);
-            
-            if(listaVagas!=null){
-            
-            for (int i = 0 ; i < listaVagas.size(); i++){
-            
-            modelo.addRow(new Object[]{String.valueOf(listaVagas.get(i).getTitulo()), String.valueOf(listaVagas.get(i).getNivelAtuacao()), String.valueOf(listaVagas.get(i).getAreaAtuacao()),String.valueOf(listaVagas.get(i).getIdEmpresa())});
-            }
-            }else{
-                JOptionPane.showMessageDialog(this,"Vaga não encontrada");
-            }
-            
-            
 
-        
+            listaVagas = vagas.consultar(busca);
+
+
+            if (listaVagas != null && !listaVagas.isEmpty()) {
+
+                for (int i = 0; i < listaVagas.size(); i++) {
+
+                    modelo.addRow(new Object[]{String.valueOf(listaVagas.get(i).getTitulo()), String.valueOf(listaVagas.get(i).getNivelAtuacao()), String.valueOf(listaVagas.get(i).getAreaAtuacao()), String.valueOf(listaVagas.get(i).getIdEmpresa())});
+                }
+            } else {
+                JOptionPane.showMessageDialog(this, "Vaga não encontrada");
+            }
+
+
+
+
         } catch (NamingException ex) {
             Logger.getLogger(Aplicacao.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-        
 
-       
-  
-        
+
+
+
+
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void btnManutencaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManutencaoActionPerformed
