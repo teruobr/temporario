@@ -172,14 +172,16 @@
                 <tr> </br> </tr>
                 <tr>
 
-                    <td>
+                    <td></br>
                         <a href="MeusDados.jsp">
-                            <input type="button" value="Voltar"/>
+                            Voltar
                         </a>
-                        <input type="submit" value="Finalizar" />
                     </td>
+                    <td> &nbsp;</td>
+                    <td> <input type="submit" value="Finalizar" /> </td>
                 </tr>
             </table>
+                     
         </form>
     </body>
 </html>

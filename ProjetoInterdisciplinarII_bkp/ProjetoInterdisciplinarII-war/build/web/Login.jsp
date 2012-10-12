@@ -44,9 +44,10 @@
                 <tr>
                     <td>
                         <a href="Cadastro.jsp">
-                            <input type="button" name="btnCadastrar" value="Cadastrar" />
+                           Cadastre-se já!
                         </a>
                     </td>
+                    <td> &nbsp;</td>
                     <td>
                         <input type="submit" value="Login"/>
                     </td>

@@ -19,7 +19,7 @@
             var cSenha = document.f1.txtConfirmaSenha.value;
 
             if (senha != cSenha) {
-                alert("Senha n�o confere!!!");
+                alert("Senha não confere!!!");
                 return false;
             }
                return true;
@@ -67,9 +67,10 @@
                 <tr>
                     <td>
                         <a href="Login.jsp">
-                            <input type="button" value="Voltar"/>
+                            Voltar 
                         </a>
                     </td>
+                    <td>&nbsp;</td>
                     <td>
                         <input type="submit" value="Enviar" onclick="if(validarSenha()) return true; else return false;"/>
                     </td>

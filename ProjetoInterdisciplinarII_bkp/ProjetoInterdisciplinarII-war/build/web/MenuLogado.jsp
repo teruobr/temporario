@@ -22,6 +22,10 @@
             <a href="AtualizarCadastro.jsp">Atualizar Cadastro</a>
         </td>
         <td>
+            <a href="Vagas.jsp">Pesquisar Vagas</a>
+        </td>
+        
+        <td>
             <a href="Sair.jsp">Sair</a>
         </td>
     </tr>

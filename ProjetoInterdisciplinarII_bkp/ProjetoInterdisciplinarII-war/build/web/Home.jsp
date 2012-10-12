@@ -28,6 +28,8 @@
         <p>    <a href="AreaAtuacao.jsp">Áreas de Atuação</a></p>
 
         <p>    <a href="AtualizarCadastro.jsp">Atualizar Cadastro</a></p>
+        
+        <p>    <a href="Vagas.jsp">Pesquisar Vagas</a></p>
 
         <p>    <a href="Sair.jsp">Sair</a></p>
 
