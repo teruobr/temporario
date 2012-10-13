@@ -29,6 +29,15 @@ public class VagasFacade extends AbstractFacade<Vagas> {
         super(Vagas.class);
     }
 
+    public Vagas getConsultaVagaID(long id) {
+        try {
+            return (Vagas) em.createQuery("SELECT OBJECT(u) FROM Vagas u  WHERE  u.id='" + id +"'").getSingleResult();
+        } catch (Exception e) {
+            System.out.println(e);
+            return null;
+        }
+    }
+
     public List<Vagas> getConsultaVaga(Vagas vaga) {
         /*
          * System.out.println("SELECT OBJECT(u) FROM Vagas u WHERE u.titulo like

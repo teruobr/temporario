@@ -99,7 +99,7 @@
         <table border ="2p">
             <tr>
                 <td>
-                    Empresa &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    Titulo &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 </td>
                 <td>
                     &Aacute;rea &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -125,15 +125,16 @@
             if(listaVagas != null && !listaVagas.isEmpty()){
                 for (int i = 0; i < listaVagas.size(); i++) {
                         %>
-             <TR> <TD><%=String.valueOf(listaVagas.get(i).getIdEmpresa())%></TD>
+             <TR> <TD><%=String.valueOf(listaVagas.get(i).getTitulo())%></TD>
                 <TD><%=String.valueOf(listaVagas.get(i).getAreaAtuacao())%></TD>
                 <TD><%=String.valueOf(listaVagas.get(i).getNivelAtuacao())%></TD>
                 <TD><%=String.valueOf(listaVagas.get(i).getEstado())%></TD>
                 <TD><%=String.valueOf(listaVagas.get(i).getCidade())%></TD>
-                <TD><a href ="VerDetalhe.jsp?ID=<%=listaVagas.get(i).getId()%>&IDEMPRESA=<%=listaVagas.get(i).getIdEmpresa()%>"> Mais Informações </a></td>
+                <TD><a href ="ConsultaDetalhe?idVaga=<%=listaVagas.get(i).getId()%>&idEmpresa=<%=listaVagas.get(i).getIdEmpresa()%>" <%session.setAttribute("listaVagas", listaVagas);%> > Mais Informações </a></td>
             </TR> 
             
-            <%}}%>
+            <%}
+            }%>
         
 
         </table>

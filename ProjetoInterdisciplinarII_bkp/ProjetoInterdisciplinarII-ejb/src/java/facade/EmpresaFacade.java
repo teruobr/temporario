@@ -46,4 +46,14 @@ public class EmpresaFacade extends AbstractFacade<Empresa>{
             return null;
         }
     }
+    
+    public Empresa getID(long id){
+       
+        try {
+            return (Empresa) em.createQuery("SELECT OBJECT(u) FROM Empresa u  WHERE  u.id='" + id + "'").getSingleResult();
+        } catch (Exception e) {
+            System.out.println(e);
+            return null;
+        }
+    }
 }

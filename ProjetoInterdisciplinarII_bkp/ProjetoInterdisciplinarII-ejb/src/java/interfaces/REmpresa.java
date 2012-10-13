@@ -41,6 +41,11 @@ public class REmpresa implements REmpresaRemote {
        return facade.getEmail(empresa.getCnpj());
 
     }
+    @Override
+    public Empresa consultarID(Empresa empresa) {
+       return facade.getID(empresa.getId());
+
+    }
 
     @Override
     public Empresa pegarDados(Empresa empresa) {

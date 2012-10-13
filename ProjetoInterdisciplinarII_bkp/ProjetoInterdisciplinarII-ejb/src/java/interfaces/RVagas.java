@@ -36,6 +36,12 @@ public class RVagas implements RVagasRemote{
     public void excluir(Vagas vaga) {
         facade.remove(vaga);
     }
+    
+    
+    @Override
+    public Vagas consultarID(Vagas vaga) {
+        return facade.getConsultaVagaID(vaga.getId());
+    }
 
     @Override
     public List<Vagas> consultar(Vagas vaga) {
