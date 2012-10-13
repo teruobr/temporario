@@ -22,10 +22,10 @@
         Usuario usuario = (Usuario) request.getSession().getAttribute("usuario");
         Vagas vaga = (Vagas) request.getSession().getAttribute("vaga");
         Empresa empresa = (Empresa) request.getSession().getAttribute("empresa");
-       /*/ 
+       
        request.getSession().setAttribute("usuario",usuario);
        request.getSession().setAttribute("vaga",vaga);
-       request.getSession().setAttribute("empresa",empresa);*/
+       request.getSession().setAttribute("empresa",empresa);
         
         
             %>
