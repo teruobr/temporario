@@ -375,6 +375,9 @@ public class Cadastro extends javax.swing.JFrame {
 
     private static boolean ValidarCNPJ(String cnpj) {
         boolean ret = false;
+        cnpj = cnpj.replace(".", "");
+        cnpj = cnpj.replace("/", "");
+        cnpj = cnpj.replace("-", "");
         String base = "00000000000000";
         if (cnpj.length() <= 14) {
             if (cnpj.length() < 14) {
@@ -430,7 +433,6 @@ public class Cadastro extends javax.swing.JFrame {
     private void txtDDDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDDDActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtDDDActionPerformed
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JToggleButton btnFinalizar;
     private javax.swing.JComboBox cbArea;
