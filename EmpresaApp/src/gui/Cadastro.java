@@ -27,7 +27,7 @@ public class Cadastro extends javax.swing.JFrame {
     public Cadastro() {
         initComponents();
         centralizar();
-
+        lblErroCNPJ.setVisible(false);
     }
 
     /**
@@ -105,6 +105,7 @@ public class Cadastro extends javax.swing.JFrame {
         cbEstado = new javax.swing.JComboBox();
         cbArea = new javax.swing.JComboBox();
         cbCidade = new javax.swing.JComboBox();
+        lblErroCNPJ = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -139,10 +140,27 @@ public class Cadastro extends javax.swing.JFrame {
                 txtCNPJActionPerformed(evt);
             }
         });
+        txtCNPJ.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtCNPJFocusLost(evt);
+            }
+        });
 
         txtBairro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtBairroActionPerformed(evt);
+            }
+        });
+
+        txtTel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtTelActionPerformed(evt);
+            }
+        });
+
+        txtDDD.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtDDDActionPerformed(evt);
             }
         });
 
@@ -173,6 +191,10 @@ public class Cadastro extends javax.swing.JFrame {
 
         cbCidade.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Selecione", "São Paulo", "Santo André", "São Bernardo do Campo", "São Caetano do Sul" }));
 
+        lblErroCNPJ.setForeground(new java.awt.Color(255, 0, 0));
+        lblErroCNPJ.setText("*CNPJ inválido");
+        lblErroCNPJ.setToolTipText("");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -185,8 +207,6 @@ public class Cadastro extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(79, 79, 79)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel10)
-                            .addComponent(jLabel8)
                             .addComponent(jLabel11)
                             .addComponent(jLabel5)
                             .addComponent(jLabel6)
@@ -194,36 +214,41 @@ public class Cadastro extends javax.swing.JFrame {
                             .addComponent(jLabel4)
                             .addComponent(jLabel3)
                             .addComponent(jLabel2)
-                            .addComponent(jLabel7))
+                            .addComponent(jLabel7)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(jLabel10)
+                                .addComponent(jLabel8)))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addGap(27, 27, 27)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                        .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addGap(27, 27, 27)
+                                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                         .addComponent(btnFinalizar)
-                                        .addGap(39, 39, 39))
-                                    .addComponent(txtSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addGap(43, 43, 43))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(8, 8, 8)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(cbCidade, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                .addComponent(txtResponsavel)
+                                                .addComponent(txtEmpresa)
+                                                .addComponent(txtBairro)
+                                                .addComponent(txtEndereco)
+                                                .addGroup(layout.createSequentialGroup()
+                                                    .addComponent(txtDDD, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addGap(18, 18, 18)
+                                                    .addComponent(txtTel, javax.swing.GroupLayout.DEFAULT_SIZE, 197, Short.MAX_VALUE))
+                                                .addComponent(cbEstado, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(txtCNPJ, javax.swing.GroupLayout.Alignment.TRAILING))
+                                            .addComponent(txtSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                                .addComponent(lblErroCNPJ))
                             .addGroup(layout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(cbArea, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(8, 8, 8)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(cbCidade, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(txtResponsavel)
-                                        .addComponent(txtEmpresa)
-                                        .addComponent(txtCNPJ)
-                                        .addComponent(txtBairro)
-                                        .addComponent(txtEndereco)
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addComponent(txtDDD, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGap(18, 18, 18)
-                                            .addComponent(txtTel, javax.swing.GroupLayout.DEFAULT_SIZE, 197, Short.MAX_VALUE))
-                                        .addComponent(cbEstado, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
-                .addContainerGap(101, Short.MAX_VALUE))
+                                .addComponent(cbArea, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(27, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -237,7 +262,8 @@ public class Cadastro extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtCNPJ, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3))
+                    .addComponent(jLabel3)
+                    .addComponent(lblErroCNPJ))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -255,7 +281,7 @@ public class Cadastro extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, 20, Short.MAX_VALUE)
+                        .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, 25, Short.MAX_VALUE)
                         .addGap(15, 15, 15))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(txtEndereco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -268,19 +294,18 @@ public class Cadastro extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel8)
                     .addComponent(txtResponsavel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(27, 27, 27)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel10)
-                    .addComponent(cbArea, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(19, 19, 19)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(txtSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnFinalizar)
-                            .addComponent(jButton1)))
-                    .addComponent(jLabel11))
+                    .addComponent(cbArea, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel10))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel11)
+                    .addComponent(txtSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(11, 11, 11)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnFinalizar)
+                    .addComponent(jButton1))
                 .addContainerGap())
         );
 
@@ -300,7 +325,7 @@ public class Cadastro extends javax.swing.JFrame {
             try {
                 ctx = new InitialContext();
                 REmpresaRemote empresa = (REmpresaRemote) ctx.lookup("java:global/ProjetoInterdisciplinarII/ProjetoInterdisciplinarII-ejb/REmpresa");
-                
+
                 company.setNome(txtEmpresa.getText());
                 company.setSenha(txtSenha.getText());
                 company.setBairro(txtBairro.getText());
@@ -348,6 +373,64 @@ public class Cadastro extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_cbAreaActionPerformed
 
+    private static boolean ValidarCNPJ(String cnpj) {
+        boolean ret = false;
+        String base = "00000000000000";
+        if (cnpj.length() <= 14) {
+            if (cnpj.length() < 14) {
+                cnpj = base.substring(0, 14 - cnpj.length()) + cnpj;
+            }
+
+            int soma = 0;
+            int dig = 0;
+            String cnpj_calc = cnpj.substring(0, 12);
+            char[] chr_cnpj = cnpj.toCharArray();
+            // Primeira parte  
+            for (int i = 0; i < 4; i++) {
+                if (chr_cnpj[i] - 48 >= 0 && chr_cnpj[i] - 48 <= 9) {
+                    soma += (chr_cnpj[i] - 48) * (6 - (i + 1));
+                }
+            }
+            for (int i = 0; i < 8; i++) {
+                if (chr_cnpj[i + 4] - 48 >= 0 && chr_cnpj[i + 4] - 48 <= 9) {
+                    soma += (chr_cnpj[i + 4] - 48) * (10 - (i + 1));
+                }
+            }
+            dig = 11 - (soma % 11);
+            cnpj_calc += (dig == 10 || dig == 11) ? "0" : Integer.toString(dig);
+            // Segunda parte  
+            soma = 0;
+            for (int i = 0; i < 5; i++) {
+                if (chr_cnpj[i] - 48 >= 0 && chr_cnpj[i] - 48 <= 9) {
+                    soma += (chr_cnpj[i] - 48) * (7 - (i + 1));
+                }
+            }
+            for (int i = 0; i < 8; i++) {
+                if (chr_cnpj[i + 5] - 48 >= 0 && chr_cnpj[i + 5] - 48 <= 9) {
+                    soma += (chr_cnpj[i + 5] - 48) * (10 - (i + 1));
+                }
+            }
+            dig = 11 - (soma % 11);
+            cnpj_calc += (dig == 10 || dig == 11) ? "0" : Integer.toString(dig);
+            ret = cnpj.equals(cnpj_calc);
+
+        }
+        return ret;
+    }
+
+    private void txtCNPJFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtCNPJFocusLost
+        lblErroCNPJ.setVisible(!ValidarCNPJ(txtCNPJ.getText()));
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCNPJFocusLost
+
+    private void txtTelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTelActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtTelActionPerformed
+
+    private void txtDDDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDDDActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtDDDActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JToggleButton btnFinalizar;
     private javax.swing.JComboBox cbArea;
@@ -365,6 +448,7 @@ public class Cadastro extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JLabel lblErroCNPJ;
     private javax.swing.JTextField txtBairro;
     private javax.swing.JTextField txtCNPJ;
     private javax.swing.JTextField txtDDD;
@@ -406,6 +490,10 @@ public class Cadastro extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Preencher todos os campos!");
             return false;
         }
+        if (lblErroCNPJ.isVisible()) {
+            return false;
+        }
+
         return true;
 
     }
