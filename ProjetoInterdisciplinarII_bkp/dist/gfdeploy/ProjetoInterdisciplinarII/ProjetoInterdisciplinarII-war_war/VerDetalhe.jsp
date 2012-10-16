@@ -4,6 +4,10 @@
     Author     : Felipe
 --%>
 
+<%@page import="java.text.SimpleDateFormat"%>
+<%@page import="java.text.ParseException"%>
+<%@page import="java.util.Locale"%>
+<%@page import="java.util.Date"%>
 <%@page import="bean.Empresa"%>
 <%@page import="java.util.List"%>
 <%@page import="bean.Vagas"%>
@@ -17,42 +21,54 @@
         <title>Detalhes Vaga</title>
     </head>
     <body>
+
+        <%!
+            private String converteData(Date date) {
+                String converte = String.valueOf(date);
+                try {
+                    converte = new SimpleDateFormat("dd/MM/yyyy").format(new SimpleDateFormat("EEE MMM d HH:mm:ss zzz yyyy", Locale.US).parse(converte));
+                    return converte;
+                } catch (ParseException ex) {
+                    return "Erro na conversão da data";
+                }
+            }%> 
+
         <%
-        
-        Usuario usuario = (Usuario) request.getSession().getAttribute("usuario");
-        Vagas vaga = (Vagas) request.getSession().getAttribute("vaga");
-        Empresa empresa = (Empresa) request.getSession().getAttribute("empresa");
-       
-       request.getSession().setAttribute("usuario",usuario);
-       request.getSession().setAttribute("vaga",vaga);
-       request.getSession().setAttribute("empresa",empresa);
-        
-        
-            %>
+
+            Usuario usuario = (Usuario) request.getSession().getAttribute("usuario");
+            Vagas vaga = (Vagas) request.getSession().getAttribute("vaga");
+            Empresa empresa = (Empresa) request.getSession().getAttribute("empresa");
+
+            request.getSession().setAttribute("usuario", usuario);
+            request.getSession().setAttribute("vaga", vaga);
+            request.getSession().setAttribute("empresa", empresa);
+
+
+        %>
         <jsp:include page="MenuLogado.jsp"/>
         <h2>Detalhe Vaga</h2>
         <form action="CandidatarUsuario">
-        <table>
-            <tr><td>Empresa:</td> <td><%=empresa.getNome() %></td> </tr>
-            <tr><td>CNPJ:</td> <td><%=empresa.getCnpj() %></td> </tr>
-            
-            <tr><td>Titulo da Vaga:</td> <td><%=vaga.getTitulo() %></td> </tr>
-            <tr><td>Descrição da Vaga:</td> <td><%=vaga.getDetalhe() %></td> </tr>
-            <tr><td>N&iacute;vel de Atua&ccedil;&atilde;o:</td> <td><%=vaga.getNivelAtuacao() %></td> </tr>
-            <tr><td>&Aacute;rea de Atua&ccedil;&atilde;o::</td> <td><%=vaga.getAreaAtuacao() %></td> </tr>
-            <tr><td>Estado:</td> <td><%=vaga.getEstado() %></td> </tr>
-            <tr><td>Data t&eacute;rmino de candidatura:</td> <td><%=vaga.getDataFinal() %></td> </tr>
-           <td></br>
-               <a href="Vagas.jsp">
-                            Voltar
-                        </a>
-                    </td>
-                    <td> &nbsp;</td>
-                    <td> <input type="submit" value="Candidatar-se" /> </td>
+            <table>
+                <tr><td>Empresa:</td> <td><%=empresa.getNome()%></td> </tr>
+                <tr><td>CNPJ:</td> <td><%=empresa.getCnpj()%></td> </tr>
+
+                <tr><td>Titulo da Vaga:</td> <td><%=vaga.getTitulo()%></td> </tr>
+                <tr><td>Descrição da Vaga:</td> <td><%=vaga.getDetalhe()%></td> </tr>
+                <tr><td>N&iacute;vel de Atua&ccedil;&atilde;o:</td> <td><%=vaga.getNivelAtuacao()%></td> </tr>
+                <tr><td>&Aacute;rea de Atua&ccedil;&atilde;o::</td> <td><%=vaga.getAreaAtuacao()%></td> </tr>
+                <tr><td>Estado:</td> <td><%=vaga.getEstado()%></td> </tr>
+                <tr><td>Data t&eacute;rmino de candidatura:</td> <td><%=converteData(vaga.getDataFinal())%></td> </tr>
+                <td></br>
+                    <a href="Vagas.jsp">
+                        Voltar
+                    </a>
+                </td>
+                <td> &nbsp;</td>
+                <td> <input type="submit" value="Candidatar-se" /> </td>
                 </tr>
             </table>
-                     
+
         </form>
-        
+
     </body>
 </html>

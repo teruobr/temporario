@@ -7,9 +7,7 @@ package servlet;
 import bean.Empresa;
 import bean.Usuario;
 import bean.Vagas;
-import com.sun.corba.se.spi.presentation.rmi.IDLNameTranslator;
 import interfaces.REmpresaRemote;
-import interfaces.RVagas;
 import interfaces.RVagasRemote;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -63,7 +61,7 @@ public class ConsultaDetalhe extends HttpServlet {
                 
                 empresa = rEmpresa.consultarID(company);
                 vaga = rVagas.consultarID(vagaSelecionada);
-            
+                            
                 
                 if (empresa != null && vaga!=null) {
 
@@ -92,7 +90,6 @@ public class ConsultaDetalhe extends HttpServlet {
             out.close();
         }
     }
-
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP

@@ -6,6 +6,7 @@ package interfaces;
 
 import bean.Usuario;
 import facade.UsuarioFacade;
+import java.util.List;
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
 
@@ -45,4 +46,5 @@ public class LUsuario implements LUsuarioLocal {
     public Usuario pegarDados(Usuario pessoa) {
         return facade.getLogin(pessoa.getEmail(), pessoa.getSenha());
     }
+       
 }

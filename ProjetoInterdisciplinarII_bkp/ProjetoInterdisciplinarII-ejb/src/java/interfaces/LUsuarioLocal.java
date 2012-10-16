@@ -11,6 +11,7 @@ import javax.ejb.Local;
  *
  * @author 31049184
  */
+
 @Local
 public interface LUsuarioLocal {
     
@@ -18,8 +19,5 @@ public interface LUsuarioLocal {
     public void alterar(Usuario pessoa);
     public void excluir(Usuario pessoa);
     public Usuario consultar(Usuario pessoa);
-    public Usuario pegarDados(Usuario pessoa);
-    
-    
-    
+    public Usuario pegarDados(Usuario pessoa);    
 }

@@ -84,15 +84,15 @@
                         Bairro:
                     </td>
                     <td>
-                        <input type="text" name="txtBairro"/>
+                        <input type="text" name="txtBairro" required="true"/>
                     </td>
                 </tr>
                 <tr>
                     <td>
-                         Endere&ccedil;o:
+                        Endere&ccedil;o:
                     </td>
                     <td>
-                        <input type="text" name="txtEndereco"/>
+                        <input required="true" type="text" name="txtEndereco" required="true"/>
                     </td>
                 </tr>
                 <tr>
@@ -100,14 +100,14 @@
                         Celular:
                     </td>
                     <td>
-                        (<input type="text" name="txtDDDCel" maxlength="2" size="1" />) <input type="text" name="txtCel" maxlength="9" size="7"/>
+                        (<input required="true" type="text" name="txtDDDCel" maxlength="2" size="1" />) <input required="true" type="text" name="txtCel" maxlength="9" size="7"/>
                     </td>
                 </tr>
                 <tr>
                     <td>
                         Telefone:
                     </td><td>
-                        (<input type="text" name="txtDDDTel" maxlength="2" size="1" />) <input type="text" name="txtTel" maxlength="8" size="7"/>
+                        (<input required="true" type="text" name="txtDDDTel" maxlength="2" size="1" />) <input required="true" type="text" name="txtTel" maxlength="8" size="7"/>
                     </td>
                 </tr>
                 <tr>
@@ -117,7 +117,7 @@
                     <td>
                         <select name="lstEscolaridade" required="true">
                             <option value="">Selecione</option>
-                            <option value="Tecnico">T&eacute;cnico</option>
+                            <option value="Técnico">T&eacute;cnico</option>
                             <option value="Superior Incompleto">Superior Incompleto</option>
                             <option value="Superior Completo">Superior Completo</option>
                             <option value="Pós-Graduado">P&oacute;s-Graduado</option>
@@ -146,10 +146,13 @@
                         <select name="lstFaculdade" required="true">
                             <option value="">Selecione</option>
                             <option value="Mackenzie">Universidade Mackenzie</option>
+                            <option value="PUC">PUC</option>
+                            <option value="USP">USP</option>
+                            <option value="FGV">FGV</option>
                         </select>
                     </td>
                     <td>
-                         &Aacute;rea de Atua&ccedil;&atilde;o:
+                        &Aacute;rea de Atua&ccedil;&atilde;o:
                     </td>
                     <td>
                         <select name="lstArea" required="true">
@@ -173,6 +176,7 @@
                             <option value="">Selecione</option>
                             <option value="Sistemas de Informação">Sistemas de Informa&ccedil;&atilde;o</option>
                             <option value="Ciência da Computação">Ci&ecirc;ncia da Computa&ccedil;&atilde;o</option>
+                            <option value="ADS">ADS</option>
                         </select>
                     </td>
                 </tr>

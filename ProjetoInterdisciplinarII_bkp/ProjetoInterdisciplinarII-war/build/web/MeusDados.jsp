@@ -29,26 +29,25 @@
              * (String) session.getAttribute("senha");
              *
              * if (!(emailLogin.equals(email)) || !(senhaLogin.equals(senha))) {
-             * response.sendRedirect("UsuarioInexistente.jsp");
-            }
-             
+             * response.sendRedirect("UsuarioInexistente.jsp"); }
+             *
+             *
+             * String email = (String) session.getAttribute("email"); String
+             * nome = (String) session.getAttribute("nome"); String rg =
+             * (String) session.getAttribute("rg"); String sexo = (String)
+             * session.getAttribute("sexo"); String estado = (String)
+             * session.getAttribute("estado"); String cidade = (String)
+             * session.getAttribute("cidade"); String bairro = (String)
+             * session.getAttribute("bairro"); String endereco = (String)
+             * session.getAttribute("endereco"); String celular = (String)
+             * session.getAttribute("celular"); String telefone = (String)
+             * session.getAttribute("telefone"); String escolaridade = (String)
+             * session.getAttribute("escolaridade"); String nivel = (String)
+             * session.getAttribute("nivel"); String area = (String)
+             * session.getAttribute("area"); String faculdade = (String)
+             * session.getAttribute("faculdade"); String curso = (String) session.getAttribute("curso");
+             */
 
-            String email = (String) session.getAttribute("email");
-            String nome = (String) session.getAttribute("nome");
-            String rg = (String) session.getAttribute("rg");
-            String sexo = (String) session.getAttribute("sexo");
-            String estado = (String) session.getAttribute("estado");
-            String cidade = (String) session.getAttribute("cidade");
-            String bairro = (String) session.getAttribute("bairro");
-            String endereco = (String) session.getAttribute("endereco");
-            String celular = (String) session.getAttribute("celular");
-            String telefone = (String) session.getAttribute("telefone");
-            String escolaridade = (String) session.getAttribute("escolaridade");
-            String nivel = (String) session.getAttribute("nivel");
-            String area = (String) session.getAttribute("area");
-            String faculdade = (String) session.getAttribute("faculdade");
-            String curso = (String) session.getAttribute("curso");*/
-            
             Usuario usuario = (Usuario) request.getSession().getAttribute("usuario");
             String email = usuario.getEmail();
             String nome = usuario.getNome();
@@ -67,7 +66,7 @@
             String area = usuario.getArea();
             String faculdade = usuario.getFaculdade();
             String curso = usuario.getCurso();
-            
+
 
         %>
         <form>

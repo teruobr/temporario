@@ -44,7 +44,7 @@
                 <tr>
                     <td>
                         <a href="Cadastro.jsp">
-                           Cadastre-se já!
+                            Cadastre-se já!
                         </a>
                     </td>
                     <td> &nbsp;</td>

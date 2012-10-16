@@ -47,8 +47,6 @@ public class Usuario implements Serializable {
         this.dddtelefone = dddtelefone;
     }
 
-    
-    
     public void setSenha(String senha) {
         this.senha = senha;
     }
@@ -60,7 +58,6 @@ public class Usuario implements Serializable {
     public void setEmail(String email) {
         this.email = email;
     }
-
         
     public String getArea() {
         return area;

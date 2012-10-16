@@ -17,11 +17,11 @@
     <body>
         <jsp:include page="MenuLogado.jsp"/>
         <h2>Pesquisar Vagas</h2>
-        
+
         <%
-        List<Vagas> listaVagas = (List<Vagas>) request.getSession().getAttribute("listaVagas");
-        
-            %>
+            List<Vagas> listaVagas = (List<Vagas>) request.getSession().getAttribute("listaVagas");
+
+        %>
         <form action="PesquisaVaga" name="form" method="post" >
             <table>
                 <tr><td>Titulo:</td> <td>
@@ -120,22 +120,22 @@
                 </td>
 
             </tr>
-            
+
             <%
-            if(listaVagas != null && !listaVagas.isEmpty()){
-                for (int i = 0; i < listaVagas.size(); i++) {
-                        %>
-             <TR> <TD><%=String.valueOf(listaVagas.get(i).getTitulo())%></TD>
+                if (listaVagas != null && !listaVagas.isEmpty()) {
+                    for (int i = 0; i < listaVagas.size(); i++) {
+            %>
+            <TR> <TD><%=String.valueOf(listaVagas.get(i).getTitulo())%></TD>
                 <TD><%=String.valueOf(listaVagas.get(i).getAreaAtuacao())%></TD>
                 <TD><%=String.valueOf(listaVagas.get(i).getNivelAtuacao())%></TD>
                 <TD><%=String.valueOf(listaVagas.get(i).getEstado())%></TD>
                 <TD><%=String.valueOf(listaVagas.get(i).getCidade())%></TD>
                 <TD><a href ="ConsultaDetalhe?idVaga=<%=listaVagas.get(i).getId()%>&idEmpresa=<%=listaVagas.get(i).getIdEmpresa()%>" <%session.setAttribute("listaVagas", listaVagas);%> > Mais Informações </a></td>
             </TR> 
-            
+
             <%}
-            }%>
-        
+                }%>
+
 
         </table>
     </body>
