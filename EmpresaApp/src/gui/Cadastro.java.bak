@@ -9,13 +9,11 @@ import interfaces.REmpresa;
 import interfaces.REmpresaRemote;
 import java.awt.Dimension;
 import java.awt.Toolkit;
-import java.text.ParseException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.swing.JOptionPane;
-import javax.swing.text.MaskFormatter;
 
 /**
  *
@@ -30,16 +28,6 @@ public class Cadastro extends javax.swing.JFrame {
         initComponents();
         centralizar();
         lblErroCNPJ.setVisible(false);
-        try {
-            MaskFormatter maskCNPJ = new MaskFormatter("##.###.###/####-##");
-            maskCNPJ.install(txtCNPJ);
-            MaskFormatter maskDDD = new MaskFormatter("##");
-            maskDDD.install(txtDDD);
-            MaskFormatter maskTel = new MaskFormatter("####-####");
-            maskTel.install(txtTel);
-        } catch (ParseException ex) {
-            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
-        }
     }
 
     /**
@@ -104,8 +92,11 @@ public class Cadastro extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         txtEmpresa = new javax.swing.JTextField();
+        txtCNPJ = new javax.swing.JTextField();
         txtBairro = new javax.swing.JTextField();
         txtResponsavel = new javax.swing.JTextField();
+        txtTel = new javax.swing.JTextField();
+        txtDDD = new javax.swing.JTextField();
         txtEndereco = new javax.swing.JTextField();
         btnFinalizar = new javax.swing.JToggleButton();
         jLabel11 = new javax.swing.JLabel();
@@ -115,9 +106,6 @@ public class Cadastro extends javax.swing.JFrame {
         cbArea = new javax.swing.JComboBox();
         cbCidade = new javax.swing.JComboBox();
         lblErroCNPJ = new javax.swing.JLabel();
-        txtCNPJ = new javax.swing.JFormattedTextField();
-        txtDDD = new javax.swing.JFormattedTextField();
-        txtTel = new javax.swing.JFormattedTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -147,6 +135,12 @@ public class Cadastro extends javax.swing.JFrame {
             }
         });
 
+        txtCNPJ.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCNPJActionPerformed(evt);
+            }
+        });
+
         txtBairro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtBairroActionPerformed(evt);
@@ -160,7 +154,7 @@ public class Cadastro extends javax.swing.JFrame {
             }
         });
 
-        jLabel11.setText("Senha:");
+        jLabel11.setText("Senha");
 
         jButton1.setText("Voltar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -182,12 +176,6 @@ public class Cadastro extends javax.swing.JFrame {
 
         lblErroCNPJ.setForeground(new java.awt.Color(255, 0, 0));
         lblErroCNPJ.setText("*CNPJ inválido");
-
-        txtCNPJ.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtCNPJActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -212,37 +200,36 @@ public class Cadastro extends javax.swing.JFrame {
                             .addComponent(jLabel2)
                             .addComponent(jLabel7))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(8, 8, 8)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addGap(27, 27, 27)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(txtResponsavel, javax.swing.GroupLayout.DEFAULT_SIZE, 258, Short.MAX_VALUE)
-                                    .addComponent(txtEmpresa)
-                                    .addComponent(txtBairro)
-                                    .addComponent(txtEndereco)
-                                    .addComponent(txtCNPJ)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(cbCidade, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(cbEstado, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(txtDDD, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                        .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(txtTel))))
+                                        .addComponent(btnFinalizar)
+                                        .addGap(39, 39, 39))
+                                    .addComponent(txtSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(layout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(cbArea, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(8, 8, 8)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(77, 77, 77)
-                                        .addComponent(btnFinalizar)))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                                    .addComponent(cbCidade, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(txtResponsavel)
+                                        .addComponent(txtEmpresa)
+                                        .addComponent(txtCNPJ)
+                                        .addComponent(txtBairro)
+                                        .addComponent(txtEndereco)
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addComponent(txtDDD, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGap(18, 18, 18)
+                                            .addComponent(txtTel, javax.swing.GroupLayout.DEFAULT_SIZE, 197, Short.MAX_VALUE))
+                                        .addComponent(cbEstado, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(lblErroCNPJ)))
-                .addContainerGap(31, Short.MAX_VALUE))
+                .addContainerGap(21, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -255,9 +242,9 @@ public class Cadastro extends javax.swing.JFrame {
                     .addComponent(txtEmpresa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtCNPJ, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3)
-                    .addComponent(lblErroCNPJ)
-                    .addComponent(txtCNPJ, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblErroCNPJ))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -275,15 +262,15 @@ public class Cadastro extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, 22, Short.MAX_VALUE)
+                        .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, 20, Short.MAX_VALUE)
                         .addGap(15, 15, 15))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(txtEndereco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7)
+                    .addComponent(txtTel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtDDD, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtTel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel7))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel8)
@@ -292,14 +279,15 @@ public class Cadastro extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel10)
                     .addComponent(cbArea, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(11, 11, 11)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(txtSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(19, 19, 19)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(txtSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btnFinalizar)
+                            .addComponent(jButton1)))
                     .addComponent(jLabel11))
-                .addGap(12, 12, 12)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnFinalizar)
-                    .addComponent(jButton1))
                 .addContainerGap())
         );
 
@@ -319,12 +307,12 @@ public class Cadastro extends javax.swing.JFrame {
             try {
                 ctx = new InitialContext();
                 REmpresaRemote empresa = (REmpresaRemote) ctx.lookup("java:global/ProjetoInterdisciplinarII/ProjetoInterdisciplinarII-ejb/REmpresa");
-
+                
                 company.setNome(txtEmpresa.getText());
                 company.setSenha(txtSenha.getText());
                 company.setBairro(txtBairro.getText());
                 company.setCidade(String.valueOf(cbCidade.getSelectedItem()));
-                company.setTelefone(txtDDD.getText());
+                company.setTelefone(txtTel.getText());
                 company.setCnpj(txtCNPJ.getText());
                 company.setResponsavelRH(txtResponsavel.getText());
                 company.setEndereco(txtEndereco.getText());
@@ -352,6 +340,10 @@ public class Cadastro extends javax.swing.JFrame {
     private void txtBairroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtBairroActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtBairroActionPerformed
+
+    private void txtCNPJActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCNPJActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCNPJActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         Login login = new Login();
@@ -411,14 +403,18 @@ public class Cadastro extends javax.swing.JFrame {
         return ret;
     }
 
-    private void jFormattedTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTelActionPerformed
+    private void txtCNPJFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtCNPJFocusLost
+        lblErroCNPJ.setVisible(!ValidarCNPJ(txtCNPJ.getText()));
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCNPJFocusLost
+
+    private void txtTelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTelActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtTelActionPerformed
 
-    private void txtCNPJActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCNPJActionPerformed
+    private void txtDDDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDDDActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtCNPJActionPerformed
-
+    }//GEN-LAST:event_txtDDDActionPerformed
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JToggleButton btnFinalizar;
     private javax.swing.JComboBox cbArea;
@@ -438,13 +434,13 @@ public class Cadastro extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JLabel lblErroCNPJ;
     private javax.swing.JTextField txtBairro;
-    private javax.swing.JFormattedTextField txtCNPJ;
-    private javax.swing.JFormattedTextField txtDDD;
+    private javax.swing.JTextField txtCNPJ;
+    private javax.swing.JTextField txtDDD;
     private javax.swing.JTextField txtEmpresa;
     private javax.swing.JTextField txtEndereco;
     private javax.swing.JTextField txtResponsavel;
     private javax.swing.JPasswordField txtSenha;
-    private javax.swing.JFormattedTextField txtTel;
+    private javax.swing.JTextField txtTel;
     // End of variables declaration//GEN-END:variables
 
     private void centralizar() {
@@ -470,7 +466,7 @@ public class Cadastro extends javax.swing.JFrame {
                 || txtBairro.getText().trim().equals("")
                 || txtEndereco.getText().trim().equals("")
                 || txtDDD.getText().trim().equals("")
-                || txtDDD.getText().trim().equals("")
+                || txtTel.getText().trim().equals("")
                 || txtResponsavel.getText().trim().equals("")
                 || cbCidade.getSelectedItem().equals("Selecione")
                 || txtSenha.getText().trim().equals("")) {

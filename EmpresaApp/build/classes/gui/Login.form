@@ -32,8 +32,8 @@
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="txtIdEmpresa" pref="126" max="32767" attributes="0"/>
-                          <Component id="txtSenha" max="32767" attributes="0"/>
+                          <Component id="txtSenha" pref="126" max="32767" attributes="0"/>
+                          <Component id="txtIdEmpresa" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="178" max="-2" attributes="0"/>
                   </Group>
@@ -85,18 +85,13 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel2">
       <Properties>
-        <Property name="text" type="java.lang.String" value="IDEmpresa:"/>
+        <Property name="text" type="java.lang.String" value="CNPJ:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel3">
       <Properties>
         <Property name="text" type="java.lang.String" value="Senha:"/>
       </Properties>
-    </Component>
-    <Component class="javax.swing.JTextField" name="txtIdEmpresa">
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtIdEmpresaActionPerformed"/>
-      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="jButton1">
       <Properties>
@@ -117,6 +112,11 @@
     <Component class="javax.swing.JPasswordField" name="txtSenha">
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtSenhaActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JFormattedTextField" name="txtIdEmpresa">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtIdEmpresaActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>

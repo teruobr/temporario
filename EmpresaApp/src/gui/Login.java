@@ -8,14 +8,13 @@ import bean.Empresa;
 import interfaces.REmpresaRemote;
 import java.awt.Dimension;
 import java.awt.Toolkit;
-import java.io.IOException;
-
-
-
+import java.text.ParseException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.swing.JOptionPane;
-import javax.swing.JTextField;
+import javax.swing.text.MaskFormatter;
 
 /**
  *
@@ -29,6 +28,14 @@ public class Login extends javax.swing.JFrame {
     public Login() {
         initComponents();
         centralizar();
+        MaskFormatter maskCNPJ;
+        try {
+            maskCNPJ = new MaskFormatter("##.###.###/####-##");
+            maskCNPJ.install(txtIdEmpresa);
+        } catch (ParseException ex) {
+            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
     }
 
     /**
@@ -43,24 +50,18 @@ public class Login extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        txtIdEmpresa = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         txtSenha = new javax.swing.JPasswordField();
+        txtIdEmpresa = new javax.swing.JFormattedTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setText("LOGIN");
 
-        jLabel2.setText("IDEmpresa:");
+        jLabel2.setText("CNPJ:");
 
         jLabel3.setText("Senha:");
-
-        txtIdEmpresa.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtIdEmpresaActionPerformed(evt);
-            }
-        });
 
         jButton1.setText("Login");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -82,6 +83,12 @@ public class Login extends javax.swing.JFrame {
             }
         });
 
+        txtIdEmpresa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtIdEmpresaActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -95,8 +102,8 @@ public class Login extends javax.swing.JFrame {
                             .addComponent(jLabel3))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtIdEmpresa, javax.swing.GroupLayout.DEFAULT_SIZE, 126, Short.MAX_VALUE)
-                            .addComponent(txtSenha))
+                            .addComponent(txtSenha, javax.swing.GroupLayout.DEFAULT_SIZE, 126, Short.MAX_VALUE)
+                            .addComponent(txtIdEmpresa))
                         .addGap(178, 178, 178))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jButton2)
@@ -131,9 +138,6 @@ public class Login extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtIdEmpresaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIdEmpresaActionPerformed
-    }//GEN-LAST:event_txtIdEmpresaActionPerformed
-
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 
         if (validar()) {
@@ -142,7 +146,7 @@ public class Login extends javax.swing.JFrame {
                 Empresa company = new Empresa();
                 company.setCnpj(txtIdEmpresa.getText());
                 company.setSenha(txtSenha.getText());
-                
+
                 ctx = new InitialContext();
                 REmpresaRemote empresa = (REmpresaRemote) ctx.lookup("java:global/ProjetoInterdisciplinarII/ProjetoInterdisciplinarII-ejb/REmpresa");
 
@@ -186,6 +190,10 @@ public class Login extends javax.swing.JFrame {
     private void txtSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSenhaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtSenhaActionPerformed
+
+    private void txtIdEmpresaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIdEmpresaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtIdEmpresaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -234,7 +242,7 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JTextField txtIdEmpresa;
+    private javax.swing.JFormattedTextField txtIdEmpresa;
     private javax.swing.JPasswordField txtSenha;
     // End of variables declaration//GEN-END:variables
 

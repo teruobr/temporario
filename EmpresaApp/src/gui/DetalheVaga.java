@@ -12,6 +12,7 @@ import java.awt.Toolkit;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Locale;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.naming.InitialContext;
@@ -21,14 +22,14 @@ import javax.swing.text.MaskFormatter;
 
 /**
  *
- * @author Administrator
+ * @author Thiago
  */
-public class CadastraVaga extends javax.swing.JFrame {
+public class DetalheVaga extends javax.swing.JFrame {
 
     /**
-     * Creates new form CadastraVaga
+     * Creates new form DetalheVaga
      */
-    private Long idEmpresa;
+    private Vagas listaVaga;
     
     private Empresa empresa;
 
@@ -38,26 +39,26 @@ public class CadastraVaga extends javax.swing.JFrame {
 
     public void setEmpresa(Empresa empresa) {
         this.empresa = empresa;
-    }
-
-    public Long getIdEmpresa() {
-        return idEmpresa;
-    }
-
-    public void setIdEmpresa(Long idEmpresa) {
-        this.idEmpresa = idEmpresa;
+        obterDadosTela();
     }
     
-    public CadastraVaga() {
+    public Vagas getListaVaga() {
+        return listaVaga;
+    }
+
+    public void setListaVaga(Vagas lista) {
+        this.listaVaga = lista;
+    }
+    
+    public DetalheVaga() {
         initComponents();
         centralizar();
         try {  
             maskData(txtData);
         } catch (ParseException ex) {  
             ex.printStackTrace();  
-        }  
-    }  
-    
+        }
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -68,81 +69,105 @@ public class CadastraVaga extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         txtTitulo = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         txtDetalhe = new javax.swing.JTextArea();
+        jLabel4 = new javax.swing.JLabel();
         cbArea = new javax.swing.JComboBox();
+        jLabel5 = new javax.swing.JLabel();
         cbAtuacao = new javax.swing.JComboBox();
-        cbEstado = new javax.swing.JComboBox();
-        cbCidade = new javax.swing.JComboBox();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
         txtBairro = new javax.swing.JTextField();
         txtData = new javax.swing.JFormattedTextField();
+        cbEstado = new javax.swing.JComboBox();
+        cbCidade = new javax.swing.JComboBox();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        btnVoltar = new javax.swing.JButton();
+        btnManutencao = new javax.swing.JButton();
+        btnAtualizar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        jButton1.setText("Voltar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-
-        jButton2.setText("Cadastrar");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
-
-        jLabel2.setText("Adicionar Vaga");
-
-        jLabel3.setText("Titulo da Vaga:");
-
-        jLabel4.setText("Descrição da Vaga:");
-
-        jLabel5.setText("Área de Atuação:");
-
-        jLabel6.setText("Nível de Atuação:");
-
-        jLabel7.setText("Estado:");
-
-        jLabel8.setText("Cidade:");
 
         jLabel9.setText("Bairro:");
 
         jLabel10.setText("Data final:");
 
+        txtTitulo.setEnabled(false);
+
         txtDetalhe.setColumns(20);
         txtDetalhe.setRows(5);
+        txtDetalhe.setEnabled(false);
         jScrollPane1.setViewportView(txtDetalhe);
 
+        jLabel4.setText("Descrição da Vaga:");
+
         cbArea.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Selecione", "Analise", "Docência e Pesquisa", "Empresário", "Gerencia", "Programação", "Redes" }));
+        cbArea.setEnabled(false);
         cbArea.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cbAreaActionPerformed(evt);
             }
         });
 
+        jLabel5.setText("Área de Atuação:");
+
         cbAtuacao.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Selecione", "Técnico", "Estagiário", "Junior", "Pleno", "Senior", "Gerente" }));
+        cbAtuacao.setEnabled(false);
 
-        cbEstado.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Selecione", "SP" }));
+        jLabel2.setText("Detalhe de Vaga");
 
-        cbCidade.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Selecione", "São Paulo", "Santo André", "São Bernardo do Campo", "São Caetano do Sul" }));
+        jLabel3.setText("Titulo da Vaga:");
 
+        txtBairro.setEnabled(false);
+        txtBairro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtBairroActionPerformed(evt);
+            }
+        });
+
+        txtData.setEnabled(false);
         txtData.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtDataActionPerformed(evt);
+            }
+        });
+
+        cbEstado.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Selecione", "SP" }));
+        cbEstado.setEnabled(false);
+
+        cbCidade.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Selecione", "São Paulo", "Santo André", "São Bernardo do Campo", "São Caetano do Sul" }));
+        cbCidade.setEnabled(false);
+
+        jLabel6.setText("Nível de Atuação:");
+
+        jLabel8.setText("Cidade:");
+
+        jLabel7.setText("Estado:");
+
+        btnVoltar.setText("Voltar");
+        btnVoltar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVoltarActionPerformed(evt);
+            }
+        });
+
+        btnManutencao.setText("Manutenção");
+        btnManutencao.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnManutencaoActionPerformed(evt);
+            }
+        });
+
+        btnAtualizar.setText("Atualizar");
+        btnAtualizar.setEnabled(false);
+        btnAtualizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAtualizarActionPerformed(evt);
             }
         });
 
@@ -162,7 +187,7 @@ public class CadastraVaga extends javax.swing.JFrame {
                             .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 101, Short.MAX_VALUE))
+                            .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(0, 6, 6)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -180,29 +205,32 @@ public class CadastraVaga extends javax.swing.JFrame {
                             .addComponent(txtData, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtBairro, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(cbCidade, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 262, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(46, 46, 46)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(47, 47, 47)
-                        .addComponent(jButton2)
-                        .addGap(25, 25, 25))
                     .addGroup(layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(25, 25, 25))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(166, 166, 166))
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(73, 73, 73)
+                        .addComponent(btnVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(33, 33, 33)
+                        .addComponent(btnManutencao)
+                        .addGap(34, 34, 34)
+                        .addComponent(btnAtualizar))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(154, 154, 154)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(15, 15, 15)
+                .addContainerGap()
                 .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(15, 15, 15)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(txtTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -226,7 +254,7 @@ public class CadastraVaga extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cbCidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel8))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel9)
                     .addComponent(txtBairro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -235,66 +263,115 @@ public class CadastraVaga extends javax.swing.JFrame {
                     .addComponent(jLabel10)
                     .addComponent(txtData, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(32, 32, 32)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnAtualizar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(btnVoltar)
+                        .addComponent(btnManutencao)))
                 .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void cbAreaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbAreaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cbAreaActionPerformed
+
+    private void txtDataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDataActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtDataActionPerformed
+
+    private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
         Aplicacao app = new Aplicacao(getEmpresa());
         app.setVisible(true);
         dispose();
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnVoltarActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        Vagas vaga = new Vagas();
-        InitialContext ctx;
+    private void btnAtualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtualizarActionPerformed
+        UIManager.put("OptionPane.noButtonText", "Não");
+        UIManager.put("OptionPane.yesButtonText", "Sim");
         if (validar()) {
-            try {
-                ctx = new InitialContext();
-                RVagasRemote vagas = (RVagasRemote) ctx.lookup("java:global/ProjetoInterdisciplinarII/ProjetoInterdisciplinarII-ejb/RVagas");
-                vaga.setTitulo(txtTitulo.getText());
-                vaga.setBairro(txtBairro.getText());
-                vaga.setDetalhe(txtDetalhe.getText());
-                vaga.setCidade(String.valueOf(cbCidade.getSelectedItem()));
-                vaga.setEstado(String.valueOf(cbEstado.getSelectedItem()));
-                vaga.setNivelAtuacao(String.valueOf(cbAtuacao.getSelectedItem()));
+            int opcao = JOptionPane.showConfirmDialog(this, "Tem certeza que deseja atualizar?", "Mensagem do Sistema", JOptionPane.YES_NO_OPTION);
+            if (opcao == JOptionPane.YES_OPTION) {
+                Vagas vaga = new Vagas();
                 vaga.setAreaAtuacao(String.valueOf(cbArea.getSelectedItem()));
-                setIdEmpresa(getEmpresa().getId());
+                vaga.setBairro(String.valueOf(txtBairro.getText()));
+                vaga.setCidade(String.valueOf(cbCidade.getSelectedItem()));
+                vaga.setDetalhe(String.valueOf(txtDetalhe.getText()));
+                vaga.setEstado(String.valueOf(cbEstado.getSelectedItem()));
+                vaga.setId(getId());
                 vaga.setIdEmpresa(getIdEmpresa());
+                vaga.setNivelAtuacao(String.valueOf(cbAtuacao.getSelectedItem()));
+                vaga.setTitulo(txtTitulo.getText());
                 SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
-                try {
+                 try {
                     Date data = format.parse(txtData.getText());
                     vaga.setDataFinal(data);
                 } catch (ParseException ex) {
                     System.out.println("Erro");
                 }
                 
-                vagas.incluir(vaga);
-                JOptionPane.showMessageDialog(this, "Vaga Cadastrada com Sucesso");
-                Aplicacao app = new Aplicacao(getEmpresa());
-                app.setVisible(true);
-                dispose();
-                
-            } catch (NamingException ex) {
-                System.out.println("Erro de Transação");
-                Logger.getLogger(Cadastro.class.getName()).log(Level.SEVERE, null, ex);
+                try {
+                    InitialContext ctx = new InitialContext();
+                    RVagasRemote vagas = (RVagasRemote) ctx.lookup("java:global/ProjetoInterdisciplinarII/ProjetoInterdisciplinarII-ejb/RVagas");
+                    vagas.alterar(vaga);
+                    JOptionPane.showMessageDialog(this, "Vaga atualizada com sucesso!");
+                    
+                    btnManutencao.setEnabled(true);
+                    btnAtualizar.setEnabled(false);
+                    cbArea.setEnabled(false);
+                    cbAtuacao.setEnabled(false);
+                    cbCidade.setEnabled(false);
+                    cbEstado.setEnabled(false);
+                    txtBairro.setEnabled(false);
+                    txtData.setEnabled(false);
+                    txtDetalhe.setEnabled(false);
+                    txtTitulo.setEnabled(false);
+                    
+                    Aplicacao app = new Aplicacao(getEmpresa());
+                    app.setVisible(true);
+                    dispose();
+                    
+                } catch (NamingException ex) {
+                    Logger.getLogger(DetalheVaga.class.getName()).log(Level.SEVERE, null, ex);
+                    JOptionPane.showMessageDialog(this, "Erro na atualização!");
+                }
             }
         }
-    }//GEN-LAST:event_jButton2ActionPerformed
+        
+    }//GEN-LAST:event_btnAtualizarActionPerformed
 
-    private void txtDataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDataActionPerformed
+    private void btnManutencaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManutencaoActionPerformed
+        btnManutencao.setEnabled(false);
+        btnAtualizar.setEnabled(true);
+        cbArea.setEnabled(true);
+        cbAtuacao.setEnabled(true);
+        cbCidade.setEnabled(true);
+        cbEstado.setEnabled(true);
+        txtBairro.setEnabled(true);
+        txtData.setEnabled(true);
+        txtDetalhe.setEnabled(true);
+        txtTitulo.setEnabled(true);
+    }//GEN-LAST:event_btnManutencaoActionPerformed
+
+    private void txtBairroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtBairroActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtDataActionPerformed
+    }//GEN-LAST:event_txtBairroActionPerformed
 
-    private void cbAreaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbAreaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cbAreaActionPerformed
-
+    public void obterDadosTela(){
+        setTxtTitulo(getListaVaga().getTitulo());
+        setTxtBairro(getListaVaga().getBairro());
+        setTxtDetalhe(getListaVaga().getDetalhe());
+        setCbArea(getListaVaga().getAreaAtuacao());
+        setCbAtuacao(getListaVaga().getNivelAtuacao());
+        setCbCidade(getListaVaga().getCidade());
+        setCbEstado(getListaVaga().getEstado());
+        setId(getListaVaga().getId());
+        setIdEmpresa(getListaVaga().getIdEmpresa());
+        setTxtData(converteData(getListaVaga().getDataFinal()));        
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -316,13 +393,13 @@ public class CadastraVaga extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(CadastraVaga.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DetalheVaga.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(CadastraVaga.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DetalheVaga.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(CadastraVaga.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DetalheVaga.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(CadastraVaga.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DetalheVaga.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
@@ -332,11 +409,11 @@ public class CadastraVaga extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
 
             public void run() {
-                new CadastraVaga().setVisible(true);
+                new DetalheVaga().setVisible(true);
             }
         });
     }
-
+    
     private void centralizar() {
         Dimension screen = Toolkit.getDefaultToolkit().getScreenSize();
         Dimension janela = getSize();
@@ -348,13 +425,55 @@ public class CadastraVaga extends javax.swing.JFrame {
         }
         setLocation((screen.width - janela.width) / 2, (screen.height - janela.height) / 2);
     }
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAtualizar;
+    private javax.swing.JButton btnManutencao;
+    private javax.swing.JButton btnVoltar;
+    private javax.swing.JComboBox cbArea;
+    private javax.swing.JComboBox cbAtuacao;
+    private javax.swing.JComboBox cbCidade;
+    private javax.swing.JComboBox cbEstado;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextField txtBairro;
+    private javax.swing.JFormattedTextField txtData;
+    private javax.swing.JTextArea txtDetalhe;
+    private javax.swing.JTextField txtTitulo;
+    // End of variables declaration//GEN-END:variables
+    private Long id;
+    
+    private Long idEmpresa;
 
+    public Long getIdEmpresa() {
+        return idEmpresa;
+    }
+
+    public void setIdEmpresa(Long idEmpresa) {
+        this.idEmpresa = idEmpresa;
+    }
+   
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+    
     public JComboBox getCbArea() {
         return cbArea;
     }
 
-    public void setCbArea(JComboBox cbArea) {
-        this.cbArea = cbArea;
+    public void setCbArea(String cbArea) {
+        this.cbArea.setSelectedItem(cbArea);
     }
 
     public JComboBox getCbAtuacao() {
@@ -389,7 +508,7 @@ public class CadastraVaga extends javax.swing.JFrame {
         this.txtBairro.setText(txtBairro);
     }
 
-    public JTextField getTxtData() {
+    public JFormattedTextField getTxtData() {
         return txtData;
     }
 
@@ -420,53 +539,33 @@ public class CadastraVaga extends javax.swing.JFrame {
         mask.setPlaceholderCharacter('_');  
         mask.install(txtData);  
         return mask;  
-    }  
+    }
     
+    private String converteData(Date date){  
+       String converte = String.valueOf(date);              
+       try {  
+           converte = new SimpleDateFormat("dd/MM/yyyy").format(new SimpleDateFormat("EEE MMM d HH:mm:ss zzz yyyy", Locale.US).parse(converte));
+          return converte;
+       } catch (ParseException ex) {  
+           Logger.getLogger(DetalheVaga.class.getName()).log(Level.SEVERE, null, ex);
+            return "Erro na conversão da data";  
+       }  
+    }    
     private boolean validar() {
-        if (txtTitulo.getText().trim().equals("")
-                || txtDetalhe.getText().trim().equals("")
-                || cbEstado.getSelectedItem().equals("Selecione")
-                || cbArea.getSelectedItem().equals("Selecione")
+        if (cbEstado.getSelectedItem().equals("Selecione")
                 || cbAtuacao.getSelectedItem().equals("Selecione")
-                || txtBairro.getText().trim().equals("")
                 || cbCidade.getSelectedItem().equals("Selecione")
+                || cbArea.getSelectedItem().equals("Selecione")
+                || txtBairro.getText().trim().equals("")
+                || txtDetalhe.getText().trim().equals("")
+                || txtTitulo.getText().trim().equals("")
                 || txtData.getText().trim().replace("/", "").replace("_", "").equals("")
                 || txtData.getText().trim().replace("/", "").replace("_", "").length() < 8){
+            
             JOptionPane.showMessageDialog(this, "Preencher todos os campos!");
             return false;
         }
         return true;
-
     }
-    
-    /*public boolean validarData() {
-         if (txtData.getText().substring(0,2).contains(" ") || txtData.getText().substring(3,5).contains(" ")|| txtData.getText().substring(6,10).contains(" ")) {   
-                JOptionPane.showMessageDialog(this, "Preencher todos os campos!");
-                return false;
-        }
-         return true;
-    }*/
-    
-    // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox cbArea;
-    private javax.swing.JComboBox cbAtuacao;
-    private javax.swing.JComboBox cbCidade;
-    private javax.swing.JComboBox cbEstado;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField txtBairro;
-    private javax.swing.JFormattedTextField txtData;
-    private javax.swing.JTextArea txtDetalhe;
-    private javax.swing.JTextField txtTitulo;
-    // End of variables declaration//GEN-END:variables
 }
+
