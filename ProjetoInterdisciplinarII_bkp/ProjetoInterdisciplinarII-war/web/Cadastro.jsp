@@ -15,15 +15,26 @@
 
     <script type="text/javascript" >
         function validarSenha(){
+            
             var senha = document.f1.txtSenha.value;
             var cSenha = document.f1.txtConfirmaSenha.value;
-
+            
             if (senha != cSenha) {
                 alert("Senha não confere!!!");
                 return false;
             }
-               return true;
+            return true;
         }
+        function ValidaEmail()
+        {
+            var txt = document.f1.txtEmail.value;
+            if ((txt.length != 0) && ((txt.indexOf("@") < 1) || (txt.indexOf('.') < 7)))
+            {
+                alert('Email incorreto');
+                obj.focus();
+            }
+        }
+
     </script>
     <body>
         <form action="CadastraUsuario" name="f1">
@@ -45,7 +56,7 @@
                         E-mail:
                     </td>
                     <td>
-                        <input type="text" name="txtEmail" required="true" />
+                        <input type="text" name="txtEmail" required="true" onblur="ValidaEmail();" />
                     </td>
                 </tr>
                 <tr>

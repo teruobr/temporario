@@ -188,6 +188,11 @@ public class Cadastro extends javax.swing.JFrame {
                 txtCNPJActionPerformed(evt);
             }
         });
+        txtCNPJ.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtCNPJFocusLost(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -418,6 +423,11 @@ public class Cadastro extends javax.swing.JFrame {
     private void txtCNPJActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCNPJActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtCNPJActionPerformed
+
+    private void txtCNPJFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtCNPJFocusLost
+       lblErroCNPJ.setVisible(!ValidarCNPJ(txtCNPJ.getText()));
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCNPJFocusLost
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JToggleButton btnFinalizar;

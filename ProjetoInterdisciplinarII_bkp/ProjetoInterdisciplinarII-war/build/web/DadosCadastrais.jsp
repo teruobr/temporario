@@ -12,7 +12,17 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" href="Estilo.css" type="text/css">
-        <title>Cadastro de novo usu&aacute;rio</title>
+        <title>Cadastro de novo usuário</title>
+        <script language='JavaScript'>
+            function SomenteNumero(e){
+                var tecla=(window.event)?event.keyCode:e.which;   
+                if((tecla>47 && tecla<58)) return true;
+                else{
+                    if (tecla==8 || tecla==0) return true;
+                    else  return false;
+                }
+            }
+        </script>
     </head>
     <body>
         <%
@@ -72,10 +82,10 @@
                     <td>
                         <select name="lstCidade" required="true">
                             <option value="">Selecione</option>
-                            <option value="São Paulo">S&atilde;o Paulo</option>
-                            <option value="Santo André">Santo Andr&eacute;</option>
-                            <option value="São Bernardo do Campo">S&atilde;o Bernardo do Campo</option>
-                            <option value="São Caetano do Sul">S&atilde;o Caetano do Sul</option>
+                            <option value="S?o Paulo">S&atilde;o Paulo</option>
+                            <option value="Santo Andr?">Santo Andr&eacute;</option>
+                            <option value="S?o Bernardo do Campo">S&atilde;o Bernardo do Campo</option>
+                            <option value="S?o Caetano do Sul">S&atilde;o Caetano do Sul</option>
                         </select>
                     </td>
                 </tr>
@@ -100,14 +110,14 @@
                         Celular:
                     </td>
                     <td>
-                        (<input required="true" type="text" name="txtDDDCel" maxlength="2" size="1" />) <input required="true" type="text" name="txtCel" maxlength="9" size="7"/>
+                        (<input required="true" type="text" name="txtDDDCel" maxlength="2" size="1" onkeypress="return SomenteNumero(event);" />) <input required="true" type="text" name="txtCel" maxlength="9" size="7" onkeypress="return SomenteNumero(event);"/>
                     </td>
                 </tr>
                 <tr>
                     <td>
                         Telefone:
                     </td><td>
-                        (<input required="true" type="text" name="txtDDDTel" maxlength="2" size="1" />) <input required="true" type="text" name="txtTel" maxlength="8" size="7"/>
+                        (<input required="true" type="text" name="txtDDDTel" maxlength="2" size="1" onkeypress="return SomenteNumero(event);" />) <input required="true" type="text" name="txtTel" maxlength="8" size="7" onkeypress="return SomenteNumero(event);"/>
                     </td>
                 </tr>
                 <tr>
@@ -117,10 +127,10 @@
                     <td>
                         <select name="lstEscolaridade" required="true">
                             <option value="">Selecione</option>
-                            <option value="Técnico">T&eacute;cnico</option>
+                            <option value="T?cnico">Técnico</option>
                             <option value="Superior Incompleto">Superior Incompleto</option>
                             <option value="Superior Completo">Superior Completo</option>
-                            <option value="Pós-Graduado">P&oacute;s-Graduado</option>
+                            <option value="P?s-Graduado">Pós-Graduado</option>
                         </select>
                     </td>
                     <td>
@@ -129,9 +139,9 @@
                     <td>
                         <select name="lstNivel" required="true">
                             <option value="">Selecione</option>
-                            <option value="Técnico">T&eacute;cnico</option>
-                            <option value="Estagiário">Estagi&aacute;rio</option>
-                            <option value="Júnior">J&uacute;nior</option>
+                            <option value="T?cnico">T&eacute;cnico</option>
+                            <option value="Estagi?rio">Estagi&aacute;rio</option>
+                            <option value="J?nior">J&uacute;nior</option>
                             <option value="Pleno">Pleno</option>
                             <option value="Senior">Senior</option>
                             <option value="Gerente">Gerente </option>
@@ -158,10 +168,10 @@
                         <select name="lstArea" required="true">
                             <option value="">Selecione</option>
                             <option value="Analise">Analise</option>
-                            <option value="Docência e Pesquisa">Doc&ecirc;ncia e Pesquisa</option>
-                            <option value="Empresário">Empres&aacute;rio</option>
-                            <option value="Gerência">Gerencia</option>
-                            <option value="Programação">Programa&ccedil;&atilde;o</option>
+                            <option value="Doc?ncia e Pesquisa">Doc&ecirc;ncia e Pesquisa</option>
+                            <option value="Empres?rio">Empres&aacute;rio</option>
+                            <option value="Ger?ncia">Gerencia</option>
+                            <option value="Programa??o">Programa&ccedil;&atilde;o</option>
                             <option value="Redes">Redes</option>
 
                         </select>
@@ -174,8 +184,8 @@
                     <td>
                         <select name="lstCurso" required="true">
                             <option value="">Selecione</option>
-                            <option value="Sistemas de Informação">Sistemas de Informa&ccedil;&atilde;o</option>
-                            <option value="Ciência da Computação">Ci&ecirc;ncia da Computa&ccedil;&atilde;o</option>
+                            <option value="Sistemas de Informa??o">Sistemas de Informa&ccedil;&atilde;o</option>
+                            <option value="Ci?ncia da Computa??o">Ci&ecirc;ncia da Computa&ccedil;&atilde;o</option>
                             <option value="ADS">ADS</option>
                         </select>
                     </td>
